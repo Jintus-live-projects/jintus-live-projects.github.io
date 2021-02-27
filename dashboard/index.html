@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Dashboard</title>
+</head>
+<body>
+<div class="container">
+    <div class="dashboard container__view container__view--left">
+        <div class="dashboard__nav card"></div>
+        <div class="dashboard__title-container">
+            <h1>Dashboard</h1>
+            <div class="dashboard__period">
+                <span>Showing for: </span>
+                21 Oct - 28 Oct 2020
+            </div>
+        </div>
+        <div class="dashboard__tab-bar card">
+            <div class="dashboard__tab-bar-element">
+                <span class="material-icons">payments</span>
+                Send money
+            </div>
+            <div class="dashboard__tab-bar-element dashboard__tab-bar-element--active">
+                <span class="material-icons">feed</span>
+                Statements
+            </div>
+            <div class="dashboard__tab-bar-element">
+                <span class="material-icons">file_upload</span>
+                Top up
+            </div>
+            <div class="dashboard__tab-bar-element">
+                <span class="material-icons">more_horiz</span>
+                More
+            </div>
+        </div>
+        <div class="dashboard__balance balance card">
+            <h2 class="balance__title">Total balance</h2>
+            <span class="balance__value">12,319</span>
+            <span class="balance__evolution balance__evolution--increase"> 3,27</span>
+        </div>
+        <div class="dashboard__expenses card"></div>
+        <div class="dashboard__transactions card"></div>
+    </div>
+    <div class="container__view container__view--right"></div>
+</div>
+</body>
+</html>

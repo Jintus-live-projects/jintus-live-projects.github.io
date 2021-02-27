@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: linear-gradient(225deg, rgba(253, 247, 253, 1) 0%, rgba(248, 239, 254, 1) 50%, rgba(234, 237, 255, 1) 100%);
+}
+
+.container {
+  --container-marge: 2em;
+
+  width: calc(100% - 2 * var(--container-marge));
+  height: calc(100vh - 2 * var(--container-marge));
+  margin: var(--container-marge);
+
+  display: flex;
+
+  border-radius: 2rem;
+  border: 1px solid #ffffff;
+  background: linear-gradient(225deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.2) 100%);
+  backdrop-filter: blur(4px);
+
+  &__view {
+    --width-right-panel: 25%;
+    height: 100%;
+
+    &--left {
+      padding: 1em;
+
+      width: calc(100% - var(--width-right-panel));
+    }
+
+    &--right {
+      width: var(--width-right-panel);
+
+      display: flex;
+      flex-direction: column;
+
+      border-radius: 0 2rem 2rem 0;
+      background: white;
+    }
+  }
+}
+
+.dashboard {
+  display: grid;
+  grid-template: auto 1fr 3fr 3fr / auto 1fr 1fr;
+  grid-column-gap: 2em;
+  grid-row-gap: 1.5em;
+
+  &__nav {
+    grid-area: 1 / 1 / 5 / 2;
+    width: 15vw;
+  }
+
+  &__title-container {
+    grid-area: 1 / 2 / 2 / 4;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 1.5em;
+
+    h1 {
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: #080C25;
+    }
+  }
+
+  &__tab-bar {
+    grid-area: 2 / 2 / 3 / 4;
+
+    display: flex;
+    padding: 0.2em;
+  }
+
+  &__tab-bar-element {
+    position: relative;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: #BCBFD0;
+
+    &:not(:first-of-type) {
+      &::before {
+        position: absolute;
+        top: 25%;
+        left: 0;
+        content: '';
+        height: 50%;
+        border-right: 1px solid #EBEFF4;
+      }
+    }
+
+    &--active {
+      background-color: #F1F3FF;
+      border-radius: 2em;
+      color: #080C25;
+      font-weight: 700;
+
+      &::before {
+        border-right: none !important;
+      }
+
+      & + .dashboard__tab-bar-element {
+        &::before {
+          border: none;
+        }
+      }
+
+      span {
+        color: #7083FF;
+      }
+    }
+
+    span {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  &__balance {
+    grid-area: 3 / 2 / 4 / 3;
+  }
+
+  &__expenses {
+    grid-area: 3 / 3 / 4 / 4;
+  }
+
+  &__transactions {
+    grid-area: 4 / 2 / 5 / 4;
+  }
+
+  &__period {
+    position: relative;
+    padding-right: 15px;
+
+    color: #080C25;
+    font-weight: 500;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      top: calc(50% - 2.5px);
+      right: 0;
+      border-top: 5px solid #080C25;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+    }
+
+    span {
+      color: #BCBFD0;
+      font-weight: 500;
+    }
+  }
+
+  .card {
+    border-radius: 2em;
+    background: white;
+    box-shadow: 8px 9px 15px -9px rgba(8, 12, 37, 0.1);
+  }
+
+  .balance {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 1.5em;
+    }
+
+    &__value {
+      position: relative;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.6em;
+      padding-left: 1rem;
+      line-height: 1;
+
+      &::before {
+        position: absolute;
+        top: 5px;
+        left: 0;
+        content: '$';
+        font-size: 1.5rem;
+      }
+    }
+
+    &__evolution {
+      --evolution-backgound-color: #F1F3FF;
+      --evolution-color: #080C25;
+
+      position: relative;
+      padding: 0.7em;
+
+      font-size: 1rem;
+      font-weight: 700;
+      background-color: var(--evolution-backgound-color);
+      color: var(--evolution-color);
+      border-radius: 1em;
+
+      &::before {
+        position: relative;
+        top: -10%;
+        left: 0;
+        content: '\2192';
+      }
+
+      &::after {
+        content: '%';
+      }
+
+      &--increase {
+        --evolution-backgound-color: #E6F9F1;
+        --evolution-color: #0BC277;
+
+        &::before {
+          content: '\2191';
+        }
+
+      }
+    }
+  }
+}
