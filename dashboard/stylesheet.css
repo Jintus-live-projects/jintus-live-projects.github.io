@@ -1,12 +1,33 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "ProximaNova";
+  src: url("./fonts/ProximaNova-Regular.otf");
+}
+@font-face {
+  font-family: "ProximaNova";
+  font-weight: 300;
+  src: url("./fonts/ProximaNova-Thin.otf");
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("fonts/Manrope-Regular.ttf");
+}
+@font-face {
+  font-family: "Manrope";
+  font-weight: 800;
+  src: url("fonts/Manrope-ExtraBold.ttf");
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+  font-family: "ProximaNova", sans-serif;
 }
 
 body {
+  --color-black: #080C25;
+  --color-grey: #BCBFD0;
+  --color-active: #7083FF;
   background: linear-gradient(225deg, #fdf7fd 0%, #f8effe 50%, #eaedff 100%);
 }
 
@@ -58,7 +79,7 @@ body {
 .dashboard__title-container h1 {
   font-weight: 700;
   font-size: 2.2rem;
-  color: #080C25;
+  color: var(--color-black);
 }
 .dashboard__tab-bar {
   grid-area: 2/2/3/4;
@@ -72,7 +93,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #BCBFD0;
+  color: var(--color-grey);
 }
 .dashboard__tab-bar-element:not(:first-of-type)::before {
   position: absolute;
@@ -85,7 +106,7 @@ body {
 .dashboard__tab-bar-element--active {
   background-color: #F1F3FF;
   border-radius: 2em;
-  color: #080C25;
+  color: var(--color-black);
   font-weight: 700;
 }
 .dashboard__tab-bar-element--active::before {
@@ -95,7 +116,7 @@ body {
   border: none;
 }
 .dashboard__tab-bar-element--active span {
-  color: #7083FF;
+  color: var(--color-active);
 }
 .dashboard__tab-bar-element span {
   margin-bottom: 0.5em;
@@ -112,7 +133,7 @@ body {
 .dashboard__period {
   position: relative;
   padding-right: 15px;
-  color: #080C25;
+  color: var(--color-black);
   font-weight: 500;
 }
 .dashboard__period::after {
@@ -127,7 +148,7 @@ body {
   border-right: 5px solid transparent;
 }
 .dashboard__period span {
-  color: #BCBFD0;
+  color: var(--color-grey);
   font-weight: 500;
 }
 .dashboard .card {
@@ -149,10 +170,11 @@ body {
 .dashboard .balance__value {
   position: relative;
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 0.6em;
   padding-left: 1rem;
   line-height: 1;
+  font-family: "Manrope", sans-serif;
 }
 .dashboard .balance__value::before {
   position: absolute;
@@ -163,7 +185,7 @@ body {
 }
 .dashboard .balance__evolution {
   --evolution-backgound-color: #F1F3FF;
-  --evolution-color: #080C25;
+  --evolution-color: var(--color-black);
   position: relative;
   padding: 0.7em;
   font-size: 1rem;
@@ -187,6 +209,178 @@ body {
 }
 .dashboard .balance__evolution--increase::before {
   content: "↑";
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav__cta {
+  padding: 1.5em 1em;
+  margin: 1em;
+  border-radius: 2em;
+  height: 200px;
+  color: white;
+  background: linear-gradient(225deg, #db82e9 0%, #8283fb 100%);
+}
+.nav__list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.nav__element {
+  padding: 1em 2em;
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--color-grey);
+}
+.nav__element--title {
+  padding: 1em 1.5em;
+  font-size: 1rem;
+}
+.nav__element--title .nav__icon {
+  color: #FF8DBA;
+  margin-right: 0.5em;
+}
+.nav__element--title .nav__text {
+  color: var(--color-black);
+}
+.nav__element--active {
+  border-right: solid var(--color-active) 2px;
+  color: var(--color-black);
+}
+.nav__element--active .nav__icon {
+  color: var(--color-active);
+}
+.nav__icon {
+  margin-right: 1em;
+}
+
+.resume {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  row-gap: 2em;
+  --picture-size: 50px;
+}
+.resume__top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.resume__notification {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: var(--picture-size);
+  height: var(--picture-size);
+  font-size: 1.7rem !important;
+  color: var(--color-grey);
+  border-radius: 50%;
+  border: solid 1px var(--color-grey);
+}
+.resume__notification::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-active);
+  border-radius: 50%;
+  --translation-x: calc(var(--picture-size) / 2);
+  transform: translate(-50%, -50%) rotate(-45deg) translateX(var(--translation-x));
+}
+.resume__pp {
+  width: var(--picture-size);
+  height: var(--picture-size);
+  border-radius: 50%;
+}
+.resume__card-element {
+  align-self: center;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  row-gap: 1em;
+}
+.section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.section__content--flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.credit-card {
+  position: relative;
+  margin: 1em;
+  padding: 1em;
+  width: 80%;
+  height: 160px;
+  display: grid;
+  grid-template: auto auto auto/auto auto auto 1fr;
+  grid-template-areas: "logo . . type" "balance balance balance ." "hidden identifier . date";
+  background: linear-gradient(225deg, #db82e9 0%, #8283fb 100%);
+  border-radius: 2em;
+  color: white;
+}
+.credit-card__logo {
+  grid-area: logo;
+  width: 40px;
+}
+.credit-card__type {
+  grid-area: type;
+  text-align: right;
+  font-weight: 300;
+}
+.credit-card__balance {
+  grid-area: balance;
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1;
+}
+.credit-card__balance::before {
+  content: "$";
+  font-size: 1rem;
+  vertical-align: top;
+}
+.credit-card__hidden-identifier {
+  grid-area: hidden;
+}
+.credit-card__identifier {
+  grid-area: identifier;
+  font-family: "Manrope", sans-serif;
+}
+.credit-card__date {
+  grid-area: date;
+  text-align: right;
+  font-weight: 300;
+}
+.credit-card__next-card {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  display: block;
+  height: 20px;
+  width: 100%;
+  border-radius: 20px;
+  background-color: red;
+  transform: translateY(20px);
 }
 
 /*# sourceMappingURL=stylesheet.css.map */
