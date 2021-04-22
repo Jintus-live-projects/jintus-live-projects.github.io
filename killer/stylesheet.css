@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+* {
+  box-sizing: border-box;
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "Comfortaa", cursive;
+  --global-bg-color: #292D32;
+}
+
+.view-container {
+  background-color: var(--global-bg-color);
+  padding: 2rem;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.registration {
+  display: flex;
+  row-gap: 3em;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.registration__input {
+  position: relative;
+  display: flex;
+}
+.registration__input input {
+  all: unset;
+  padding: 1em;
+  border-radius: 1.5em;
+  background: linear-gradient(145deg, #25292d, #2c3036);
+  box-shadow: 29px 29px 57px #23262b, -29px -29px 57px #2f343a;
+  flex-grow: 1;
+}
+.registration__input button {
+  all: unset;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(-1rem, -50%);
+}
+.registration__players {
+  all: unset;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  row-gap: 2em;
+  flex-grow: 1;
+}
+.registration__players li span {
+  margin-left: 1em;
+}
+.registration__start-button {
+  all: unset;
+  padding: 1em;
+  border-radius: 2em;
+  box-shadow: 29px 29px 57px #23262b, -29px -29px 57px #2f343a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.display__type {
+  font-size: 5rem;
+}
+.display__player {
+  font-size: 3rem;
+}
+
+.idle {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+.idle__players {
+  list-style-type: none;
+  font-size: 1.5rem;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.idle__players li:not(:last-of-type) {
+  margin-bottom: 2em;
+}
+.idle__players li span {
+  margin-left: 1em;
+}
+.idle__reset {
+  all: unset;
+  padding: 1em;
+  border-radius: 2em;
+  box-shadow: 29px 29px 57px #23262b, -29px -29px 57px #2f343a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=stylesheet.css.map */
